@@ -25,7 +25,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Replace USERNAME_PLACEHOLDER
-      run: sh replace_username.sh
+      run: bash replace_username.sh
 
     - name: Build and push image to ACR EE
       run: |
