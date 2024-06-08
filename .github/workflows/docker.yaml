@@ -13,6 +13,7 @@ env:
   ALIYUN_HUB_NAME: "${{ secrets.ALIYUN_HUB_NAME }}"
   MM_NOTIFY_URL: "${{ secrets.MM_NOTIFY_URL }}"
   HEARTCHECK_URL: "${{ secrets.HEARTCHECK_URL }}"
+  PUSHDEER_API_KEY: ${{ secrets.PUSHDEER_API_KEY }}
 
 jobs:
 
@@ -40,9 +41,10 @@ jobs:
       run: |
         sh pull.sh
         data=`cat trigger.txt`
-        curl  -H 'Content-Type: application/json' \
-         -d "{\"msgtype\": \"text\",\"text\": {\"content\":\"同步成功 $data \"}}" \
-         $MM_NOTIFY_URL
+        curl -X POST $PUSHDEER_URL \
+             -d "pushkey=$PUSHDEER_API_KEY" \
+             -d "text=镜像同步成功！" \
+             -d "type=text"
 
     - name: Send Heartcheck
       run: |

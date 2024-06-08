@@ -1,3 +1,8 @@
 archivebox/archivebox:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/archivebox:latest
 valeriansaliou/sonic:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/sonic:latest
 theasp/novnc:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/novnc:latest
+xhofe/alist:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/alist:latest
+allanpk716/chinesesubfinder:latest-lite registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/chinesesubfinder:latest-lite
+allanpk716/chinesesubfinder:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/chinesesubfinder:latest
+python:3.11-alpine registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/python:3.11-alpine
+containrrr/watchtower registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/watchtower
