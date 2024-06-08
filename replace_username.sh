@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 从环境变量中读取用户名
-USERNAME="${{ secrets.ALIYUN_REGISTRY_USER }}"
+USERNAME="${ALIYUN_REGISTRY_USER}"
 
 echo USERNAME
 
