@@ -27,9 +27,14 @@ jobs:
     - name: Replace USERNAME_PLACEHOLDER
       run: bash replace_username.sh
 
+    - name: Verify replacement
+      run: cat trigger.txt
+
+    - name: Login to Docker registry
+      run: echo "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}" | docker login -u $ALIYUN_REGISTRY_USER --password-stdin $REGISTRY
+    
     - name: Build and push image to ACR EE
       run: |
-        docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $REGISTRY
         sh pull.sh
         data=`cat trigger.txt`
         curl  -H 'Content-Type: application/json' \
