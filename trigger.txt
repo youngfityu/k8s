@@ -1,3 +1,3 @@
-archivebox/archivebox:latest registry.cn-hangzhou.aliyuncs.com/USERNAME_PLACEHOLDER/archivebox/archivebox:latest
-valeriansaliou/sonic:latest registry.cn-hangzhou.aliyuncs.com/USERNAME_PLACEHOLDER/valeriansaliou/sonic:latest
-theasp/novnc:latest registry.cn-hangzhou.aliyuncs.com/USERNAME_PLACEHOLDER/theasp/novnc:latest
+archivebox/archivebox:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/archivebox/archivebox:latest
+valeriansaliou/sonic:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/valeriansaliou/sonic:latest
+theasp/novnc:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/theasp/novnc:latest
