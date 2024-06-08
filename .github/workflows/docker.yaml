@@ -32,16 +32,16 @@ jobs:
       run: cat trigger.txt
 
       
-    # - name: Login to Docker registry
-    #   run: echo "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}" | docker login -u $ALIYUN_REGISTRY_USER --password-stdin $REGISTRY
+    - name: Login to Docker registry
+      run: echo "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}" | docker login -u $ALIYUN_REGISTRY_USER --password-stdin $REGISTRY
     
-    # - name: Build and push image to ACR EE
-    #   run: |
-    #     sh pull.sh
-    #     data=`cat trigger.txt`
-    #     curl  -H 'Content-Type: application/json' \
-    #      -d "{\"msgtype\": \"text\",\"text\": {\"content\":\"同步成功 $data \"}}" \
-    #      $MM_NOTIFY_URL
+    - name: Build and push image to ACR EE
+      run: |
+        sh pull.sh
+        data=`cat trigger.txt`
+        curl  -H 'Content-Type: application/json' \
+         -d "{\"msgtype\": \"text\",\"text\": {\"content\":\"同步成功 $data \"}}" \
+         $MM_NOTIFY_URL
 
     - name: Send Heartcheck
       run: |
