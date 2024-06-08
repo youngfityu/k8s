@@ -1,1 +1,3 @@
-homeassistant/home-assistant:2024.6 registry.cn-hangzhou.aliyuncs.com/yaming116/home-assistant:2024.6
+archivebox/archivebox:latest registry.cn-hangzhou.aliyuncs.com/USERNAME_PLACEHOLDER/archivebox/archivebox:latest
+valeriansaliou/sonic:latest registry.cn-hangzhou.aliyuncs.com/USERNAME_PLACEHOLDER/valeriansaliou/sonic:latest
+theasp/novnc:latest registry.cn-hangzhou.aliyuncs.com/USERNAME_PLACEHOLDER/theasp/novnc:latest

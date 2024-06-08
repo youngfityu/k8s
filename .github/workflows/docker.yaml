@@ -24,6 +24,9 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 
+    - name: Replace USERNAME_PLACEHOLDER
+      run: sh replace_username.sh
+
     - name: Build and push image to ACR EE
       run: |
         docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $REGISTRY
