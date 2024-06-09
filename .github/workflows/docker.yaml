@@ -17,13 +17,12 @@ env:
   PUSHDEER_API_KEY: "${{ secrets.PUSHDEER_API_KEY }}"
   
 jobs:
-
   build:
-    name: Pull
+    name: Build and Push Docker Image
     runs-on: ubuntu-latest
     steps:
     - name: Setup Docker buildx
-      uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
+      uses: docker/setup-buildx-action@v1
 
     - name: Check out code
       uses: actions/checkout@v2
@@ -31,21 +30,29 @@ jobs:
     - name: Replace USERNAME_PLACEHOLDER
       run: bash replace_username.sh
 
-    - name: Verify replacement
-      run: cat trigger.txt
 
-      
     - name: Login to Docker registry
       run: echo "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}" | docker login -u $ALIYUN_REGISTRY_USER --password-stdin $REGISTRY
-    
-    - name: Build and push image to ACR EE
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+
+    - name: Create a new builder instance
+      run: docker buildx create --use
+
+    - name: Inspect builder instance
+      run: docker buildx inspect --bootstrap
+
+    - name: Build and push image
       run: |
-        sh pull.sh
-        data=`cat trigger.txt`
+        docker buildx build --platform linux/amd64,linux/arm64 -t $REGISTRY/$ALIYUN_HUB_NAME:latest --push .
+
+    - name: Send notification
+      run: |
+        data=$(cat trigger.txt)
         curl -X POST $PUSHDEER_URL \
              -d "pushkey=$PUSHDEER_API_KEY" \
              -d "text=镜像同步成功！"
 
     - name: Send Heartcheck
-      run: |
-        curl -X GET $HEARTCHECK_URL
+      run: curl -X GET $HEARTCHECK_URL
