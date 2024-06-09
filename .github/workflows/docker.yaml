@@ -34,18 +34,15 @@ jobs:
     - name: Login to Docker registry
       run: echo "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}" | docker login -u $ALIYUN_REGISTRY_USER --password-stdin $REGISTRY
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
-
-    - name: Create a new builder instance
-      run: docker buildx create --use
-
-    - name: Inspect builder instance
-      run: docker buildx inspect --bootstrap
-
-    - name: Build and push image
+      
+    - name: Build and Push Docker Image
       run: |
-        docker buildx build --platform linux/amd64,linux/arm64 -t $REGISTRY/$ALIYUN_HUB_NAME:latest --push .
+        docker buildx create --use
+        while IFS= read -r line; do
+          image=$(echo $line | awk '{print $1}')
+          tag=$(echo $line | awk '{print $2}')
+          docker buildx build --platform linux/amd64,linux/arm64 -t $REGISTRY/$tag --push .
+        done < trigger.txt
 
     - name: Send notification
       run: |
