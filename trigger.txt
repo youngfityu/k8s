@@ -1,1 +1,1 @@
-alpine:20240606 registry.cn-hangzhou.aliyuncs.com/yaming116/alpine:20240606
+vulhub/activemq:5.17.3 registry.cn-hangzhou.aliyuncs.com/root001/activemq:5.17.3
