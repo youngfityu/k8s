@@ -1,1 +1,1 @@
-alpine:20240606 registry.cn-hangzhou.aliyuncs.com/yaming116/alpine:20240606
+tomcat:9.0.91-jdk8-temurin-jammy registry.cn-shanghai.aliyuncs.com/boogcloud/tomcat:9.0.91-jdk8-temurin-jammy
