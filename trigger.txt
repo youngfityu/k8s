@@ -1,1 +1,1 @@
-calico/cni:v3.28.2   registry.cn-hangzhou.aliyuncs.com/youngfit/cni:v3.28.2
+calico/cni:v3.28.2    registry.cn-hangzhou.aliyuncs.com/youngfit/cni:v3.28.2
