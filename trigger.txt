@@ -1,1 +1,1 @@
-alpine:20240606 registry.cn-hangzhou.aliyuncs.com/yaming116/alpine:20240606
+calico/cni:v3.28.2 registry.cn-hangzhou.aliyuncs.com/youngfit/calico:v3.28.2
